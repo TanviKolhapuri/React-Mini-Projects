@@ -56,8 +56,8 @@ function App() {
     <div className="App">
       <div className="container">
         <header className="header">
-          <h1>My To-Do List</h1>
-          <p className="subtitle">Stay organized and productive</p>
+          <h1>Tanvi's To-Do List</h1>
+          <p className="subtitle">To Stay organized and productive</p>
         </header>
 
         <div className="stats">
