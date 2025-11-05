@@ -1,0 +1,103 @@
+/* Reuse same visual language as the To-Do app (container, fonts, shadows) */
+
+.todo-container {
+  max-width: 700px;
+  margin: 28px auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(16,24,40,0.08);
+  background: #fff;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.title {
+  margin: 0 0 12px 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* search form */
+.weather-search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.weather-search input[type="text"] {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 15px;
+}
+
+.weather-search button {
+  padding: 10px 14px;
+  background: #111827;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* reused controls/filter styles come from todo css (buttons' .active style) */
+
+/* Weather card */
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #f3f4f6;
+  background: linear-gradient(180deg, #fff, #fbfbfd);
+  margin-top: 12px;
+}
+
+.weather-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.location {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.weather-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.weather-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.temp {
+  font-size: 40px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.desc {
+  text-transform: capitalize;
+  color: #4b5563;
+}
+
+.weather-meta {
+  display: flex;
+  gap: 14px;
+  color: #374151;
+  font-size: 14px;
+}
+
+/* empty/loading/error */
+.empty {
+  color: #6b7280;
+  padding: 12px;
+  text-align: center;
+}
