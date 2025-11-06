@@ -1,35 +1,92 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState, useEffect } from 'react';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchUsers();
+  }, []);
+
+  const fetchUsers = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('https://jsonplaceholder.typicode.com/users');
+      const data = await response.json();
+      setUsers(data);
+      setLoading(false);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <p className="loading-text">Loading users details...</p>
+      </div>
+    );
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="user-list-container">
+      <h1 className="title">User Directory</h1>
+      <div className="user-grid">
+        {users.map((user) => (
+          <div key={user.id} className="user-card">
+            <div className="user-header">
+              <div className="user-avatar">{user.name.charAt(0)}</div>
+              <h2 className="user-name">{user.name}</h2>
+            </div>
+            <div className="user-details">
+              <div className="detail-item">
+                <span className="detail-label">Email:</span>
+                <span className="detail-value">{user.email}</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Phone:</span>
+                <span className="detail-value">{user.phone}</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Company: </span>
+                <span className="detail-value">{user.company.name}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react';
+// import UserList from './UserList';
+// import './App.css';
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <UserList />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
