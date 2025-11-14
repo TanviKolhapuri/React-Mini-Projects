@@ -40,7 +40,7 @@ const EventForm = ({ editEvent, onCancel }) => {
     e.preventDefault();
     
     if (!formData.title || !formData.date || !formData.managerId) {
-      alert('Please fill in all required fields (Title, Date, Manager)');
+      alert('Please fill all required fields (Title, Date, Manager)');
       return;
     }
 

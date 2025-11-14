@@ -14,7 +14,7 @@ export const EventProvider = ({ children }) => {
   const [events, setEvents] = useState([
     // {
     //   id: 1,
-    //   title: 'Annual Tech Conference 2024',
+    //   title: 'Annual Tech Conference 2025',
     //   description: 'Join us for the biggest tech conference of the year featuring keynote speakers, workshops, and networking opportunities.',
     //   date: '2024-12-15',
     //   time: '09:00',
